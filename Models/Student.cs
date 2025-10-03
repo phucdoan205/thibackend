@@ -2,10 +2,10 @@ namespace BackendMidterm.Models;
 
 public class Student
 {
-    public int id { get; set; }
-    public string name { get; set; }
-    public DateTime date_of_birth { get; set; }
+    public int Id { get; set; }
+    public required string Name { get; set; }
+    public DateTime DateOfBirth { get; set; }
 
-    public int class_id { get; set; }
-    public Class? Class { get; set; }
+    public int ClassId { get; set; }
+    public required Class Class { get; set; }
 }
