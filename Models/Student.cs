@@ -10,6 +10,6 @@ namespace thibackend
         
         public int classid { get; set; }
 
-        public class class { get; set; }
+        public Class class { get; set; }
     }
 }
