@@ -81,7 +81,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Class](
-	[Id] [int] NOT NULL,
+	[Id] [int] NOT NULL IDENTITY(1,1),
 	[Name] [nvarchar](50) NULL,
  CONSTRAINT [PK_Class] PRIMARY KEY CLUSTERED 
 (
@@ -96,7 +96,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Student](
-	[Id] [int] NOT NULL,
+	[Id] [int] NOT NULL IDENTITY(1,1),
+	[Id] [int] NOT NULL ,
 	[Name] [nvarchar](50) NULL,
 	[DayOfBirth] [datetime] NULL,
 	[ClassId] [int] NULL,
