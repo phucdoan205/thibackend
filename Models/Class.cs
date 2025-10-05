@@ -1,11 +1,11 @@
-namespace thibackend
+namespace ClassModel
 {
     public class Class
     {
-        public int id { get; set; }       
+        public int Id { get; set; }       
 
-        public string name { get; set; }     
+        public string Name { get; set; }     
 
-        public ICollection<Student> students { get; set; } = new LinkedList<Student>();
+        public ICollection<Student> Students { get; set; } = new LinkedList<Student>();
     }
 }
