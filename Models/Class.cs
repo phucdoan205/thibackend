@@ -1,8 +1,11 @@
-namespace BackendMidterm.Models;
-
-public class Class
+namespace ClassModel
 {
-    public int Id { get; set; }
-    public required string Name { get; set; }
-    public ICollection<Student> Students { get; set; } = new List<Student>();
+    public class Class
+    {
+        public int Id { get; set; }       
+
+        public string Name { get; set; }     
+
+        public ICollection<Student> Students { get; set; } = new LinkedList<Student>();
+    }
 }
