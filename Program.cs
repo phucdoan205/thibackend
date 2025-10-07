@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 
-using thibackend.Entity;
 
 var builder = WebApplication.CreateBuilder(args);
 
