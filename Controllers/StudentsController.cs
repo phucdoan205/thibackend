@@ -90,6 +90,7 @@ public class StudentsController(AppDbContext context, IMapper mapper) : Controll
         existing.Name = dto.Name;
         existing.DateOfBirth = dto.DateOfBirth;
         // Không cho đổi lớp → giữ nguyên ClassId
+        // student.ClassId = dto.ClassId;
 
         await _context.SaveChangesAsync();
         return NoContent();
