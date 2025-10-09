@@ -14,8 +14,21 @@ public class StudentsController(AppDbContext context, IMapper mapper) : Controll
     private readonly AppDbContext _context = context;
     private readonly IMapper _mapper = mapper;
 
-    // GET /api/students?pageNumber=1&pageSize=10
+    // Lấy danh sách tất cả sinh viên (kèm tên lớp)
     [HttpGet]
+    public async Task<ActionResult<IEnumerable<StudentDto>>> GetAllStudents()
+    {
+        // Include để lấy dữ liệu lớp học liên quan
+        var students = await _context.Students
+            .Include(s => s.Class)
+            .ToListAsync();
+
+        var result = _mapper.Map<IEnumerable<StudentDto>>(students);
+        return Ok(result);
+    }
+
+    // GET /api/students?pageNumber=1&pageSize=10
+    [HttpGet("/api/Students/Pagination")]
     public async Task<ActionResult<object>> GetStudents(int pageNumber = 1, int pageSize = 10)
     {
         var totalCount = await _context.Students.CountAsync();
@@ -81,4 +94,17 @@ public class StudentsController(AppDbContext context, IMapper mapper) : Controll
         await _context.SaveChangesAsync();
         return NoContent();
     }
+    //  DELETE /api/students/{id} - Xóa sinh viên
+    // [HttpDelete("{id}")]
+    // public async Task<IActionResult> DeleteStudent(int id)
+    // {
+    //     var existing = await _context.Students.FindAsync(id);
+    //     if (existing == null)
+    //         return NotFound("Không tìm thấy sinh viên để xóa.");
+
+    //     _context.Students.Remove(existing);
+    //     await _context.SaveChangesAsync();
+
+    //     return Ok($"Đã xóa sinh viên có Id = {id}.");
+    // }
 }
