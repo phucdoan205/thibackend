@@ -32,4 +32,40 @@ public class ClassesController(AppDbContext context, IMapper mapper) : Controlle
 
         return CreatedAtAction(nameof(GetClasses), new { id = c.Id }, _mapper.Map<ClassDto>(c));
     }
+     //  PUT /api/classes/{id} - Cập nhật tên lớp
+    // [HttpPut("{id}")]
+    // public async Task<IActionResult> UpdateClass(int id, ClassDto dto)
+    // {
+    //     var existing = await _context.Classes.FindAsync(id);
+    //     if (existing == null)
+    //         return NotFound("Không tìm thấy lớp cần cập nhật.");
+
+    //     existing.Name = dto.Name;
+    //     await _context.SaveChangesAsync();
+
+    //     return NoContent();
+    // }
+
+    // //  DELETE /api/classes/{id} - Xóa lớp (và sinh viên trong lớp đó)
+    // [HttpDelete("{id}")]
+    // public async Task<IActionResult> DeleteClass(int id)
+    // {
+    //     var existing = await _context.Classes
+    //         .Include(c => c.Students)
+    //         .FirstOrDefaultAsync(c => c.Id == id);
+
+    //     if (existing == null)
+    //         return NotFound("Không tìm thấy lớp để xóa.");
+
+    //     // Xóa sinh viên thuộc lớp này trước (nếu có)
+    //     if (existing.Students != null && existing.Students.Any())
+    //     {
+    //         _context.Students.RemoveRange(existing.Students);
+    //     }
+
+    //     _context.Classes.Remove(existing);
+    //     await _context.SaveChangesAsync();
+
+    //     return Ok($"Đã xóa lớp {existing.Name} và toàn bộ sinh viên trong lớp.");
+    // }
 }
