@@ -1,7 +1,9 @@
-namespace BackendMidterm.Dtos;
-
-public class ClassDto
+namespace ClassDto 
 {
-    public int Id { get; set; }
-    public required string Name { get; set; }
+    public class ClassDto
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+    }
 }

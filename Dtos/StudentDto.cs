@@ -1,9 +1,13 @@
-namespace BackendMidterm.Dtos;
-
-public class StudentDto
+namespace StudentDto 
 {
-    public int Id { get; set; }
-    public required string Name { get; set; }
-    public DateTime DateOfBirth { get; set; }
-    public required string ClassName { get; set; }
+    public class StudentDto
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+        
+        public DateTime DateOfBirth { get; set; }
+
+        public int ClassId { get; set; }
+    }
 }
